@@ -14,6 +14,8 @@ class Execute {
 
 		while (true) {
 		//Read Audio data
+			ReadAudio reader = new ReadAudio ();
+			reader.startRead (5000);
 
 		//Transound
 
