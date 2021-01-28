@@ -5,6 +5,7 @@ Currently it saves as a file.
 
 TODO: Just provide the audio buffer
 */
+package com.example;
 
 import javax.sound.sampled.*;
 import java.io.*;
@@ -15,7 +16,7 @@ public class ReadAudio {
 	static final int READ_TIME = 5000;
 
 	//File to read
-	File readFile = new File ("/Users/adarshhegde/TransoundInput.wav");
+	File readFile = new File ("/home/prashant/workspace/Transound/sublime_text_3/tmp.wav");
 
 	//File format
 	AudioFileFormat.Type fileType = AudioFileFormat.Type.WAVE;
@@ -38,7 +39,7 @@ public class ReadAudio {
     }
 
     /* Function to read the data */
-    void startRead (int time) {
+    public void startRead (int time) {
     	try {
     		AudioFormat audioFormat = getAudioFormat ();
 
@@ -84,7 +85,7 @@ public class ReadAudio {
     }
 
     //Stop reading
-    void stopRead () {
+    public void stopRead () {
     	dataLine.stop ();
     	dataLine.close ();
     	System.out.println ("Read done!");

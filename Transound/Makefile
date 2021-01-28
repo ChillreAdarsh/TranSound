@@ -6,15 +6,17 @@
 #
 JCC = javac
 
+JC = java
+
 # define a makefile variable for compilation flags
 # the -g flag compiles with debugging information
 #
-JFLAGS = -g
+JFLAGS = -g -cp .
 
 # typing 'make' will invoke the first target entry in the makefile 
 # (the default one in this case)
 #
-default: Execute.class PlayAudio.class Transound.class
+default: PlayAudio.class Transound.class ReadAudio.class Execute.class 
 
 # this target entry builds the Average class
 # the Average.class file is dependent on the Average.java file
@@ -22,15 +24,17 @@ default: Execute.class PlayAudio.class Transound.class
 #
 
 
-PlayAudio.class: PlayBack.java
-	$(JCC) $(JFLAGS) PlayBack.java
+PlayAudio.class: src/com/example/PlayBack.java
+	$(JCC) $(JFLAGS) src/com/example/PlayBack.java
 
-Execute.class: Execute.java
-	$(JCC) $(JFLAGS) Execute.java
+Execute.class: src/com/example/Test/Execute.java
+	$(JCC) $(JFLAGS) src/com/example/Test/Execute.java
 
-Transound.class: Transound.java
-	$(JCC) $(JFLAGS) Transound.java
+Transound.class: src/com/example/Transound.java
+	$(JCC) $(JFLAGS) src/com/example/Transound.java
 
+ReadAudio.class: src/com/example/ReadAudio.java
+	$(JCC) $(JFLAGS) src/com/example/ReadAudio.java
 # To start over from scratch, type 'make clean'.  
 # Removes all .class files, so that the next make rebuilds them
 #
