@@ -3,9 +3,9 @@
 */
 
 class Transound {
-	Transcribe transcriber;
-	Translate transtor;
-	Synthesise synthesiser;
+	//Transcribe transcriber;
+	//Translate transtor;
+	//Synthesise synthesiser;
 
 	/* Audio to Text converter 
 	Inout: File
