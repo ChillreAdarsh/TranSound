@@ -16,7 +16,7 @@ public class ReadAudio {
 	static final int READ_TIME = 5000;
 
 	//File to read
-	File readFile = new File ("/home/prashant/workspace/Transound/sublime_text_3/tmp.wav");
+	File readFile = new File ("tmp.wav");
 
 	//File format
 	AudioFileFormat.Type fileType = AudioFileFormat.Type.WAVE;

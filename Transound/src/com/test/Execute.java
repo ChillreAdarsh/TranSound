@@ -1,4 +1,4 @@
-package com.example.test;
+package com.test;
 /* Project TranSound
 
 This project intends to solve language problem faced by professionals accross the globe. This mainly uses Google Cloud platform to Transcribe, Translate and Synthesise the voice spoken in another language to intended language.
@@ -13,8 +13,10 @@ import com.example.*;
 class Execute {
 	public static void main (String[] args) {
 		//Initialise
+		int i = 0;
 
-		while (true) {
+		//Loop 10 times for now
+		while (i<10) {
 		//Read Audio data
 			ReadAudio reader = new ReadAudio ();
 			reader.startRead (5000);
@@ -23,7 +25,8 @@ class Execute {
 
 		//Output to relavant device
             PlayBack player = new PlayBack();
-            player.startPlayback("/home/prashant/workspace/Transound/sublime_text_3/tmp.wav");
+            player.startPlayback("tmp.wav");
+            i++;
 		}
 	}
 }
