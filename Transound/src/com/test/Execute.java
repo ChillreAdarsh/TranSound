@@ -22,6 +22,8 @@ class Execute {
 		//Transound
 
 		//Output to relavant device
+            PlayBack player = new PlayBack();
+            player.startPlayback("/home/prashant/workspace/Transound/sublime_text_3/tmp.wav");
 		}
 	}
 }

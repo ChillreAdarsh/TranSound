@@ -54,6 +54,22 @@ public class ReadAudio {
             dataLine = (TargetDataLine) AudioSystem.getLine(info);
             dataLine.open (audioFormat);
 
+            //Start a timer and stop when requested time in ms reached. If time=0 then it will never stop reading.
+            if (time != 0) {
+                Thread timer = new Thread (new Runnable() {
+                        public void run() {
+                        try {
+                        System.out.println ("Sleeping for ....." + time);
+                        Thread.sleep(time);
+                        } catch (InterruptedException ex) {
+                        ex.printStackTrace();
+                        }
+                        stopRead();
+                        }
+                        });
+                timer.start ();
+            }
+
             //Start reading
             dataLine.start ();
             System.out.println ("Started Reading.....");
@@ -61,21 +77,9 @@ public class ReadAudio {
             //Save the captured data in File
             AudioInputStream audioInStream = new AudioInputStream(dataLine);
             AudioSystem.write (audioInStream, fileType, readFile);
+            System.out.println ("Started Writing.....");
 
-            //Start a timer and stop when requested time in ms reached. If time=0 then it will never stop reading.
-            if (time != 0) {
-	            Thread timer = new Thread (new Runnable() {
-	            public void run() {
-	                try {
-	                    Thread.sleep(time);
-	                } catch (InterruptedException ex) {
-	                    ex.printStackTrace();
-	                }
-	                stopRead();
-	            }
-	        });
-	        timer.start ();
-        }
+
 
     	} catch (LineUnavailableException ex) {
             ex.printStackTrace();

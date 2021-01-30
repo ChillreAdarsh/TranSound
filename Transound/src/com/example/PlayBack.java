@@ -1,4 +1,4 @@
-package transound.playback;
+package com.example;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,12 +15,13 @@ Date: 27/1/2021
 This file has the play function that plays out audio data from a file.
 */
 
-class PlayAudio implements LineListener {
+public class PlayBack implements LineListener {
 
 	boolean playBackCompleted = false;
 
 	public void startPlayback(String audioFilePath) {
 		File audioFile = new File(audioFilePath);
+        System.out.println("Opened file for reading");
 		try {
 		/* gets an audio stream of the file */
 		AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
@@ -42,9 +43,11 @@ class PlayAudio implements LineListener {
 		audioClip.open(audioStream);
 
 		audioClip.start();
+        System.out.println("Statedplk");
 
 		while(!playBackCompleted) {
 				try {
+        System.out.println("Sleeping for 1 second");
                     Thread.sleep(1000);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();

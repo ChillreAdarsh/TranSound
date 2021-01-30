@@ -16,7 +16,7 @@ JFLAGS = -g -cp .
 # typing 'make' will invoke the first target entry in the makefile 
 # (the default one in this case)
 #
-default: PlayAudio.class Transound.class ReadAudio.class Execute.class 
+default: PlayBack.class Transound.class ReadAudio.class Execute.class 
 
 # this target entry builds the Average class
 # the Average.class file is dependent on the Average.java file
@@ -24,7 +24,7 @@ default: PlayAudio.class Transound.class ReadAudio.class Execute.class
 #
 
 
-PlayAudio.class: src/com/example/PlayBack.java
+PlayBack.class: src/com/example/PlayBack.java
 	$(JCC) $(JFLAGS) src/com/example/PlayBack.java
 
 Execute.class: src/com/example/Test/Execute.java
