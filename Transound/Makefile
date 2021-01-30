@@ -40,4 +40,4 @@ ReadAudio.class: src/com/example/ReadAudio.java
 # Removes all .class files, so that the next make rebuilds them
 #
 clean: 
-	$(RM) *.class $(RM) classes/com/example/*.class
+	$(RM) *.class $(RM) src/com/example/*.class $(RM) src/com/test/*.class
